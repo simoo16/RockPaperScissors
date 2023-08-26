@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+    <header>
+        <section class="heading-sec">
+            <span id="game-status">Game Status Will Be Shown Here.</span>
+        </section>
+        <section class="user-score">
+            <p>Your Score</p>
+            <span id="usr-score">0</span>
+        </section>
+        <section class="computer-score">
+            <p>Computer Score</p>
+            <span id="comp-score">0</span>
+        </section>
+    </header>
+    <main>
+       <div class="box paper" data-name="Paper"></div>
+       <div class="box scissors" data-name="Scissors"></div>
+       <div class="box rock" data-name="Rock"></div>
+    </main>
+    <footer>
+        <section class="player-info-box">
+            <p>You've Chosen:</p>
+            <div class="player-info">
+
+            </div>
+        </section>
+        <section class="computer-info-box">
+            <p>Computer Has Chosen:</p>
+            <div class="computer-info">
+
+            </div>
+        </section>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

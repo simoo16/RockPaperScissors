@@ -5,7 +5,7 @@ let userCounter = 0;
 let userScore = document.getElementById("usr-score");
 let compScore = document.getElementById("comp-score");
 let gameStatus = document.getElementById("game-status");
-let username = window.prompt("What Is Your Name : ")
+const userName = document.getElementById("user-name");
 function randomizeComputerChoice() {
     let randomComputerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)]
     return randomComputerChoice
@@ -16,6 +16,27 @@ function restartGame(){
      window.location.reload()
     }else{
      window.close()
+    }
+}
+window.onload = function() {
+    const usrInputBx = document.querySelector(".user-info-box");
+    const continueBtn = document.getElementById("submit-btn");
+    const closeWinBtn = document.querySelector(".fa-xmark");
+    usrInputBx.classList.add("active-usr-box");
+    closeWinBtn.onclick = function() {
+        usrInputBx.classList.remove("active-usr-box");
+        if(userName.value === ""){
+           userName = "Player"
+        }
+    }
+    continueBtn.onclick = function() {
+        const userInfoName = document.querySelector(".user-info-name")
+        userInfoName.textContent = "Welcome " + userName.value + ". Good Chance"
+        userInfoName.style = "color: white; font-size: 18px; text-align: center;"
+        continueBtn.style.display = "none"
+        setTimeout(() => {
+            usrInputBx.classList.remove("active-usr-box")
+        }, 2048);
     }
 }
 userChoices.forEach(userChoice => {
@@ -50,13 +71,13 @@ userChoices.forEach(userChoice => {
         }
         if(userCounter === 10 || computerCounter === 10){
             if(userCounter > computerCounter){
-               gameStatus.textContent = username + " Win !"
+               gameStatus.textContent = userName + " Win !"
             }else if(userCounter < computerCounter){
                 gameStatus.textContent = "Computer Win !"
             }else {
                 gameStatus.textContent = "Tie !!!"
             }
-            setTimeout(restartGame, 5120)
+            setTimeout(restartGame, 2048)
         }
     })
 })

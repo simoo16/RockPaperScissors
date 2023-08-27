@@ -31,6 +31,9 @@ window.onload = function() {
     }
     continueBtn.onclick = function() {
         const userInfoName = document.querySelector(".user-info-name")
+          if(userName.value === ""){
+            userName = "Player"
+         }
         userInfoName.textContent = "Welcome " + userName.value + ". Good Chance"
         userInfoName.style = "color: white; font-size: 18px; text-align: center;"
         continueBtn.style.display = "none"
